@@ -94,7 +94,7 @@ def tag_padding(ids):
 
 def rawdata2pkl4bert(path, att_list):
     tokenizer = BertTokenizer.from_pretrained('bert-base-en')
-    with open("path", "r") as f:
+    with open("/content/raw.json", "r") as f:
       listDict = json.load(f)
     for att_name in tqdm(att_list):
         print('#'*20+att_name+'#'*20)
@@ -159,7 +159,7 @@ def rawdata2pkl4bert(path, att_list):
 
 def get_attributes(path):
     atts = []
-    with open("path", "r") as f:
+    with open("/content/raw.json", "r") as f:
       listDict = json.load(f)
       atts = []
       for row in listDict:
@@ -170,7 +170,7 @@ def get_attributes(path):
 if __name__=='__main__':
     TAGS = {'':0,'B':1,'I':2,'O':3}
     id2tags = {v:k for k,v in TAGS.items()}
-    path = '/content/raw.json'
+    #path = '/content/raw.json'
     att_list = get_attributes(path)
     rawdata2pkl4bert(path, att_list)
 
