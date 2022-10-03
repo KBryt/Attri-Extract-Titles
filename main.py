@@ -7,7 +7,7 @@ from pytorch_transformers import BertTokenizer
 import random
 import numpy as np 
 import torch 
-#import models
+import models
 from utils import get_dataloader
 from sklearn.metrics import precision_score, recall_score, f1_score, classification_report
 from seqeval.metrics import f1_score, accuracy_score, classification_report
