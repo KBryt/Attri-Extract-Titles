@@ -7,7 +7,7 @@ class DefaultConfig(object):
     model = 'ormtag2022'  # For the model used, the name must match the name in the models/__init__.py
     pretrained_bert_name = 'bert-base-uncased'
 
-    pickle_path = '/content/Type.pkl'
+    pickle_path = 'Type.pkl'
     load_model_path = None  # The path to load the pre-trained model, which stands for None is not loaded
 
     batch_size = 32  # batch size
