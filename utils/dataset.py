@@ -31,8 +31,8 @@ def get_dataloader(opt):
 
     train_dataset = MyDataset(train_x, train_y, train_att)
     valid_dataset = MyDataset(valid_x, valid_y, valid_att)
-    test_dataset = MyDataset(test_x, test_y, test_att)
-
+    test_dataset = MyDataset(test_x, test_y, test_att)    
+    
     try:
         train_dataloader = DataLoader(train_dataset, batch_size=opt.batch_size, shuffle=True, num_workers=opt.num_workers)
         valid_dataloader = DataLoader(valid_dataset, batch_size=opt.batch_size, shuffle=True, num_workers=opt.num_workers)
@@ -41,3 +41,10 @@ def get_dataloader(opt):
     except:
         pass
     return None
+
+ if __name__=='__main__':
+    train_dataloader, valid_dataloader, test_dataloader = get_dataloader()
+    for batch in train_dataloader:
+        print(batch['x'].shape)
+        print(batch['y'].shape)
+        print(batch['att'].shape)
