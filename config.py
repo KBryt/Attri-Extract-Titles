@@ -5,7 +5,7 @@ class DefaultConfig(object):
     env = 'default'  # the visdom environment
     vis_port =8097 # the visdom port
     model = 'ormtag2022'  # For the model used, the name must match the name in the models/__init__.py
-    pretrained_bert_name = 'bert-base-chinese'
+    pretrained_bert_name = 'bert-base-uncased'
 
     pickle_path = '/content/Type.pkl'
     load_model_path = None  # The path to load the pre-trained model, which stands for None is not loaded
