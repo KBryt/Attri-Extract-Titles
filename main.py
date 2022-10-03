@@ -121,6 +121,6 @@ def train(**kwargs):
     logger.info(report)
 
 
-if __name__=='__main__':
-    import fire
-    fire.Fire()
+# if __name__=='__main__':
+#     import fire
+#     fire.Fire()
