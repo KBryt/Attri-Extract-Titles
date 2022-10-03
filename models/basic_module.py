@@ -5,22 +5,22 @@ import time
 
 class BasicModule(t.nn.Module):
     """
-    封装了nn.Module,主要是提供了save和load两个方法
+    Encapsulated nn. Module, mainly provides save and load two methods
     """
 
     def __init__(self):
         super(BasicModule,self).__init__()
-        self.model_name=str(type(self))# 默认名字
+        self.model_name=str(type(self))# the default name
 
     def load(self, path):
         """
-        可加载指定路径的模型
+        The model for the specified path can be loaded
         """
         self.load_state_dict(t.load(path))
 
     def save(self, name=None):
         """
-        保存模型，默认使用“模型名字+时间”作为文件名
+        Save the model, using "Model Name + Time" as the file name by default
         """
         if name is None:
             prefix = './checkpoints/' + self.model_name + '_'
@@ -34,7 +34,7 @@ class BasicModule(t.nn.Module):
 
 class Flat(t.nn.Module):
     """
-    把输入reshape成（batch_size,dim_length）
+    Put the reshape into（batch_size,dim_length）
     """
 
     def __init__(self):
