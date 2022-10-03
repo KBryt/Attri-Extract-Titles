@@ -42,8 +42,8 @@ def get_dataloader(opt):
         pass
     return None
 
- if __name__=='__main__':
-     train_dataloader, valid_dataloader, test_dataloader = get_dataloader()
+#  if __name__=='__main__':
+#      train_dataloader, valid_dataloader, test_dataloader = get_dataloader()
 #     for batch in train_dataloader:
 #         print(batch['x'].shape)
 #         print(batch['y'].shape)
