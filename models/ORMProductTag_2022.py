@@ -11,6 +11,7 @@ class ORMTag2022(BasicModule):
         self.model_name = 'ormtag2022'
         self.opt = opt
         self.embedding_dim = opt.embedding_dim
+        self.max_length = max_length
         self.hidden_dim = opt.hidden_dim
         self.tagset_size = opt.tagset_size
 
@@ -25,7 +26,7 @@ class ORMTag2022(BasicModule):
         self.lstm = torch.nn.LSTM(self.embedding_dim, self.hidden_dim // 2, num_layers=1, bidirectional=True, batch_first=True)
 
         self.hidden2tag = torch.nn.Linear(self.hidden_dim*2, self.tagset_size)
-        self.crf = CRF(self.tagset_size, batch_first=False)
+        self.crf = CRF(self.tagset_size, max_length=self.max_length, batch_first=True, device=device)
 
     def calculate_cosin(self, context_output, att_hidden):
         '''
