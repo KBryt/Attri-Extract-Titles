@@ -25,9 +25,10 @@ class ORMTag2022(BasicModule):
         #CRF
         self.lstm = torch.nn.LSTM(self.embedding_dim, self.hidden_dim // 2, num_layers=1, bidirectional=True, batch_first=True)
         
-        self.crf = CRF(self.tagset_size, max_length=self.max_length, batch_first=True, device=device)
-        self.hidden2tag = torch.nn.Linear(self.hidden_dim*2, self.tagset_size)
         self.device = device
+        self.hidden2tag = torch.nn.Linear(self.hidden_dim*2, self.tagset_size)
+        self.crf = CRF(self.tagset_size) # max_length=self.max_length, batch_first=True, device=device)
+        
 
     def calculate_cosin(self, context_output, att_hidden):
         '''
