@@ -11,7 +11,6 @@ class ORMTag2022(BasicModule):
         self.model_name = 'ormtag2022'
         self.opt = opt
         self.embedding_dim = opt.embedding_dim
-        self.max_length = max_length
         self.hidden_dim = opt.hidden_dim
         self.tagset_size = opt.tagset_size
 
