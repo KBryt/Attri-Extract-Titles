@@ -4,7 +4,7 @@ import torch as t
 class DefaultConfig(object):
     env = 'default'  # the visdom environment
     vis_port =8097 # the visdom port
-    model = 'ormtag2022'  # For the model used, the name must match the name in the models/__init__.py
+    model = 'ORMTag2022'  # For the model used, the name must match the name in the models/__init__.py
     pretrained_bert_name = 'bert-base-uncased'
 
     pickle_path = 'Type.pkl'
