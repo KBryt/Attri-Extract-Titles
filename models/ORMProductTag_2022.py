@@ -1,8 +1,8 @@
-from basic_module import BasicModule
+from .basic_module import BasicModule
 from pytorch_transformers import BertModel
 import torch
 from TorchCRF import CRF
-from squeeze_embedding import SqueezeEmbedding
+from .squeeze_embedding import SqueezeEmbedding
 
 class ORMTag2022(BasicModule):
     def __init__(self, opt, *args, **kwargs):
