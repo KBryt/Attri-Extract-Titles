@@ -103,6 +103,8 @@ def rawdata2pkl4bert(path, att_list):
         values = []
         tags = []
         for row in listDict:
+          if len(row["title"]) > 512:
+            row["title"] = row["title"][:512]
             if attribute in [att_name] and value in title: 
               title, attribute, value, tag = bert4token(tokenizer, row["title"], row["attribute"], row["value"])
               titles.append(title)
