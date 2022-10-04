@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.optim as optim
-from torchcrf import CRF
+from TorchCRF import CRF
 from basic_module import BasicModule
 from squeeze_embedding import SqueezeEmbedding
 
