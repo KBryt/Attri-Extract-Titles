@@ -2,13 +2,13 @@ import os
 import sys
 from time import strftime, localtime
 from collections import Counter
-#from config import opt
+from config import opt
 from pytorch_transformers import BertTokenizer
 import random
 import numpy as np 
 import torch 
-#import models
-#from utils import get_dataloader
+import models
+from utils import get_dataloader
 from sklearn.metrics import precision_score, recall_score, f1_score, classification_report
 from seqeval.metrics import f1_score, accuracy_score, classification_report
 from tqdm import tqdm
@@ -49,7 +49,7 @@ def train(**kwargs):
         torch.backends.cudnn.benchmark = False
    
     # step1: configure model
-    model = getattr(model, opt.model)(opt)
+    model = getattr(models, opt.model)(opt)
     if opt.load_model_path:
         model.load(opt.load_model_path)
     model.to(opt.device)
