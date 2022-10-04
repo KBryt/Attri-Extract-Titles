@@ -2,7 +2,7 @@ import os
 import sys
 from time import strftime, localtime
 from collections import Counter
-from config import opt
+#from config import opt
 from pytorch_transformers import BertTokenizer
 import random
 import numpy as np 
