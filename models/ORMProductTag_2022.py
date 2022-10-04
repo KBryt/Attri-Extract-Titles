@@ -4,9 +4,9 @@ import torch
 from TorchCRF import CRF
 from squeeze_embedding import SqueezeEmbedding
 
-class OrmTag2022(BasicModule):
+class ORMTag2022(BasicModule):
     def __init__(self, opt, *args, **kwargs):
-        super(OrmTag2022, self).__init__(*args, **kwargs)
+        super(ORMTag2022, self).__init__(*args, **kwargs)
 
         self.model_name = 'ormtag2022'
         self.opt = opt
