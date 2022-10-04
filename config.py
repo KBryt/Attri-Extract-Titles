@@ -24,7 +24,7 @@ class DefaultConfig(object):
     weight_decay = 0e-5  # L2 regular
     dropout = 0.2
     seed = 1234
-    device = 'cuda'
+    
 
 
     def _parse(self, kwargs):
