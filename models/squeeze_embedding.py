@@ -27,10 +27,12 @@ class SqueezeEmbedding(nn.Module):
         x_sort_idx = torch.sort(-x_len)[1].long()
         x_unsort_idx = torch.sort(x_sort_idx)[1].long()
         x_len = x_len[x_sort_idx]
+        x_len = torch.as_tensor(x_len, dtype=torch.int64)
+        x_len = x_len.cpu()
         x = x[x_sort_idx]
         """pack"""
        
-        x_emb_p = torch.nn.utils.rnn.pack_padded_sequence(x, x_len.cpu(), batch_first=self.batch_first)
+        x_emb_p = torch.nn.utils.rnn.pack_padded_sequence(x, x_len.cpu(), batch_first=self.batch_first, enforce_sorted=True)
          
         """unpack: out"""
         out = torch.nn.utils.rnn.pad_packed_sequence(x_emb_p, batch_first=self.batch_first)  # (sequence, lengths)
