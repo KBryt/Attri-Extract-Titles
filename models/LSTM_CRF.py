@@ -39,7 +39,7 @@ class NERLSTM_CRF(BasicModule):
         outputs = self.crf.decode(outputs)
         return outputs
 
-    def log_likelihood(self, inputs, ):
+    def log_likelihood(self, inputs):
         x, att, tags = inputs
         x = x.transpose(0,1)
         tags = tags.transpose(0,1)
