@@ -46,7 +46,7 @@ class ORMTag2022(BasicModule):
 
         return outputs
 
-    def forward(self, inputs):
+    def forward(self, inputs, att_hidden):
         context, att, target = inputs[0], inputs[1], inputs[2]
         context_len = torch.sum(context != 0, dim=-1)
         att_len = torch.sum(att != 0, dim=-1)
