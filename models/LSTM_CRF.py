@@ -26,7 +26,7 @@ class NERLSTM_CRF(BasicModule):
         self.hidden2tag = nn.Linear(self.hidden_dim, self.tagset_size)
         self.crf = CRF(self.tagset_size)
 
-    def forward(self, inputs, **kwardgs):
+    def forward(self, inputs):
         x, att, tags = inputs
         #CRF
         x = x.transpose(0,1)
