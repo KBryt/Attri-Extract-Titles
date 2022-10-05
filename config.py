@@ -2,8 +2,8 @@ import warnings
 import torch as t
 
 class DefaultConfig(object):
-    #env = 'default'  # the visdom environment
-    #vis_port =8097 # the visdom port
+    env = 'default'  # the visdom environment
+    vis_port =8097 # the visdom port
     model = 'ORMTag2022'  # For the model used, the name must match the name in the models/__init__.py
     pretrained_bert_name = 'bert-base-uncased'
 
@@ -24,7 +24,7 @@ class DefaultConfig(object):
     weight_decay = 0e-5  # L2 regular
     dropout = 0.2
     seed = 1234
-    
+    device = 'cuda'
 
 
     def _parse(self, kwargs):
@@ -36,7 +36,7 @@ class DefaultConfig(object):
                 warnings.warn("Warning: opt has not attribut %s" % k)
             setattr(self, k, v)
         
-        #opt.device =t.device('cuda') if opt.use_gpu else t.device('cpu')
+        opt.device =t.device('cuda') if opt.use_gpu else t.device('cuda')
 
 
         print('user config:')
