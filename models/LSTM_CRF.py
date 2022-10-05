@@ -26,12 +26,12 @@ class NERLSTM_CRF(BasicModule):
         self.hidden2tag = nn.Linear(self.hidden_dim, self.tagset_size)
         self.crf = CRF(self.tagset_size)
 
-    def forward(self, inputs):
+    def forward(self, inputs, attention_mask):
         x, att, tags = inputs
         #CRF
         x = x.transpose(0,1)
 
-        embedding = self.word_embeds(x)
+        embedding = self.word_embeds(x, attention_mask)
         outputs, hidden = self.lstm(embedding)
         outputs = self.dropout(outputs)
         outputs = self.hidden2tag(outputs)
