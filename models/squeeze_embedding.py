@@ -16,7 +16,7 @@ class SqueezeEmbedding(nn.Module):
         super(SqueezeEmbedding, self).__init__()
         self.batch_first = batch_first
 
-    def forward(self, x, x_len, mask):
+    def forward(self, x, x_len):
         """
         sequence -> sort -> pad and pack -> unpack ->unsort
         :param x: sequence embedding vectors
