@@ -26,7 +26,7 @@ class NERLSTM_CRF(BasicModule):
         self.hidden2tag = nn.Linear(self.hidden_dim, self.tagset_size)
         self.crf = CRF(self.tagset_size)
 
-    def forward(self, inputs, mask=mask):
+    def forward(self, inputs, mask=None):
         x, att, tags = inputs
         #CRF
         x = x.transpose(0,1)
@@ -39,7 +39,7 @@ class NERLSTM_CRF(BasicModule):
         outputs = self.crf.decode(outputs)
         return outputs
 
-    def log_likelihood(self, inputs):
+    def log_likelihood(self, inputs, ):
         x, att, tags = inputs
         x = x.transpose(0,1)
         tags = tags.transpose(0,1)
